@@ -1,10 +1,16 @@
 import {Component, ViewChild} from "@angular/core";
 import {CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComponent} from "ng-auto-complete";
+import { FormControl } from '@angular/forms';
+import { AppService } from '../app-service.service'
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/map';
+
 
 @Component({
   selector: 'app-airports',
   templateUrl: './airports.component.html',
-  styleUrls: ['./airports.component.scss']
+  styleUrls: ['./airports.component.scss'],
+  providers: [AppService]
 })
 export class AirportsComponent {
 
@@ -25,8 +31,16 @@ export class AirportsComponent {
             {titleKey: 'title', childrenKey: null}
         ),
     ];
- 
-    constructor() {
+   searchTerm : FormControl = new FormControl();
+   searchResult = [];
+
+    constructor(private service: AppService) {
+    this.searchTerm.valueChanges
+        .subscribe(data => {
+            this.service.search_word(data).subscribe(response =>{
+                this.searchResult = response
+            })
+        })
  
     }
  

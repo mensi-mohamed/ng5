@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgAutoCompleteModule} from "ng-auto-complete";
 import { AirportsComponent } from './airports/airports.component';
+import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule, MatInputModule } from '@angular/material';
 
 
 
@@ -25,7 +27,11 @@ import { AirportsComponent } from './airports/airports.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    NgAutoCompleteModule
+    NgAutoCompleteModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    HttpModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
