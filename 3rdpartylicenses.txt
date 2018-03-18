@@ -126,6 +126,10 @@ MIT
 MIT
 MIT
 
+ng-auto-complete@2.7.14
+MIT
+MIT
+
 @angular/common@5.2.9
 MIT
 MIT
