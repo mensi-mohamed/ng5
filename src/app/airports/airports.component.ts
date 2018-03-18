@@ -36,9 +36,7 @@ export class AirportsComponent {
      * @constructor
      */
     Selected(item: SelectedAutocompleteItem) {
-        this.selected.push(item.item);
-        this.completer.RemovableValues('completer', this.selected)
-
+        console.log(item.item.title);
     }
 
 
